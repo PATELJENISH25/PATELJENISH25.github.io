@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Shop - Spices Market</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .header-icons {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px;
+        }
+
+        .header-icons i {
+            margin-right: 10px;
+            color: #f7f4f4;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-icons">
+        <a href="cart.html">
+            <i class="fas fa-shopping-cart"></i> 
+        </a>
+    </div>
+    <h1>Shop - Spices Market</h1>
+
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="recipes.html">Recipes</a></li>
+        <li><a href="blog.html">Blog</a></li>
+    </ul>
+</nav>
+
+<main>
+    <section>
+        <h2>Our Products</h2>
+        <table>
+            <tr>
+                <td>
+                    <img src="https://www.jkspices.com/wp-content/uploads/2020/08/poppy_seed.jpg" alt="poppy_seed">
+                </td>
+                <td>
+                    <h3>poppy_seed</h3>
+                    <p>Description: Poppy Seed is an oilseed obtained from the Opium Poppy (Papaver somniferum). These tiny kidney-shaped seeds are used as an ingredient in many foods and are pressed to yield poppyseed oil. Being highly nutritious and less allergenic than many other seeds and nuts, Poppy Seeds have their own significance in Indian cuisine panorama. </p>
+                    <p>Price: $10.99</p>
+                    <button onclick="addToCart('poppy_seed', 10.99, 'https://www.jkspices.com/wp-content/uploads/2020/08/poppy_seed.jpg')">Add to Cart</button>
+                    <p class="feedback" style="display: none;">Added to cart!</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="https://www.jkspices.com/wp-content/uploads/2020/08/black_paper.jpg" alt="black_paper">
+                </td>
+                <td>
+                    <h3>black_paper</h3>
+                    <p>Description: The original black gold, the king of all spices. Black pepper is the spice that spawned every voyage of discovery in modern history, and now occupies pride of place with common salt at every dining table around the world. Interesting to think that this little vine growing wild in India’s Malabar coast was once so valuable that it was widely used as currency! Black Pepper is the world’s most traded spice and also known as ‘King of Spices’</p>
+                    <p>Price: $10.99</p>
+                    <button onclick="addToCart('black_paper', 10.99, 'https://www.jkspices.com/wp-content/uploads/2020/08/black_paper.jpg')">Add to Cart</button>
+                    <p class="feedback" style="display: none;">Added to cart!</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="https://www.jkspices.com/wp-content/uploads/2020/07/mustard_powder.jpg" alt="mustard_powder">
+                </td>
+                <td>
+                    <h3>mustard_powder</h3>
+                    <p>Description: Mustard Powder is made from mustard seeds, de-coated and ground in fine mash. The paste prepared out of this Mustard Powder is a well-liked spice in multi-cuisine especially loved in Bengali cuisine put to use in the preparation of many delicacies. It is majorly used in India, Bangladesh, UAE and many South Asian countries.</p>
+                    <p>Price: $10.99</p>
+                    <button onclick="addToCart('mustard_powder', 10.99, 'https://www.jkspices.com/wp-content/uploads/2020/07/mustard_powder.jpg')">Add to Cart</button>
+                    <p class="feedback" style="display: none;">Added to cart!</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="https://www.jkspices.com/wp-content/uploads/2021/03/Kesar_2.jpg" alt="Kesar_2">
+                </td>
+                <td>
+                    <h3>Saffron</h3>
+                    <p>Description: JK Kashmiri Saffron is one of the most expensive spice derived from the Purple Saffron Flower and acts as a powerful antioxidant.</p>
+                    <p>Price: $5.99</p>
+                    <button onclick="addToCart('Saffron', 5.99, 'https://www.jkspices.com/wp-content/uploads/2021/03/Kesar_2.jpg')">Add to Cart</button>
+                    <p class="feedback" style="display: none;">Added to cart!</p>
+                </td>
+            </tr>
+        </table>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 Spices Market. All rights reserved.</p>
+</footer>
+
+<script>
+    // Function to handle adding a product to the cart
+    function addToCart(productName, productPrice, imageUrl) {
+        // Construct the product object
+        const product = {
+            name: productName,
+            price: productPrice,
+            quantity: 1,
+            image: imageUrl // Add the image URL to the product object
+        };
+
+        // Get existing cart items from local storage or initialize an empty array
+        let cartItems = JSON.parse(localStorage.getItem('cartProducts')) || [];
+
+        // Check if the product is already in the cart
+        const existingProductIndex = cartItems.findIndex(item => item.name === productName);
+
+        if (existingProductIndex !== -1) {
+            // If the product is already in the cart, update the quantity
+            cartItems[existingProductIndex].quantity += 1;
+        } else {
+            // If the product is not in the cart, add it to the cart array
+            cartItems.push(product);
+        }
+
+        // Store the updated cart items in local storage
+        localStorage.setItem('cartProducts', JSON.stringify(cartItems));
+
+        // Provide feedback to the user (optional)
+        alert('Product added to cart!');
+    }
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+

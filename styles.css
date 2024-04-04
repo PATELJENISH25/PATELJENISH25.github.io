@@ -1,0 +1,55 @@
+/* Resetting default margin and padding */
+body, header, nav, main, footer, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+header, footer {
+    background-color: #9e1212;
+    color: #fff;
+    padding: 1em;
+}
+
+header h1, footer p {
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    background-color: #542424;
+    overflow: hidden;
+}
+
+nav ul li {
+    float: left;
+}
+
+nav ul li a {
+    display: block;
+    color: #fff;
+    padding: 1em;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: #916060;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+footer {
+    text-align: center;
+    clear: both;
+}
